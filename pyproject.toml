@@ -1,0 +1,8 @@
+[project]
+name = "sophisthse"
+version = "0.0.1"
+description = "SophistHSE package provides methods to access timeseries data from sophist.hse.ru using Python."
+dependencies = ["html5lib", "pandas"]
+[build-system]
+requires = ["flit_core<4", "wheel"]
+build-backend = "flit_core.buildapi"
