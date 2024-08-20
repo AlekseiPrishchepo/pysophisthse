@@ -19,7 +19,7 @@ classifiers = [
 requires = ["flit_core<4", "wheel"]
 build-backend = "flit_core.buildapi"
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov", "flake8", "black"]
+dev = ["pytest", "pytest-cov", "requests_mock", "flake8", "black"]
 [project.urls]
 Homepage = "https://github.com/AlekseiPrishchepo/pysophisthse"
 Source = "https://github.com/AlekseiPrishchepo/pysophisthse"
