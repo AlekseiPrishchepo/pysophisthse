@@ -59,26 +59,26 @@ class sophisthse:
             raise ValueError("The date format is not recognized.")
 
     @staticmethod
-    def get_month(t) -> str | None:
+    def get_month(t) -> str:
         m = re.sub(r"(?:\d{4}\s)(\d{1,2})", "\\1", t)
-        m = m if len(m) <= 2 else None
+        m = m if len(m) <= 2 else ""
         return m
 
     @staticmethod
-    def get_quarter(t) -> str | None:
+    def get_quarter(t) -> str:
         d = {"I": "3", "II": "6", "III": "9", "IV": "12"}
         try:
             q = re.search(r"[IV]+", t).group()  # type: ignore
             return d[q]
         except AttributeError:
-            return None
+            return ""
 
     @staticmethod
-    def get_year(t) -> str | None:
+    def get_year(t) -> str:
         try:
             return re.search(r"\d{4}", t).group()  # type: ignore
         except AttributeError:
-            return None
+            return ""
 
     def get_monthly_dates(self, df: pd.DataFrame) -> pd.DataFrame:
         df.loc[:, ["m"]] = df["T"].apply(self.get_month)
