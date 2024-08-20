@@ -62,7 +62,7 @@ class sophisthse:
     @staticmethod
     def get_month(t) -> Union[str, None]:
         m = re.sub(r"(?:\d{4}\s)(\d{1,2})", "\\1", t)
-        m = m if len(m) <= 2 else ""
+        m = m if len(m) <= 2 else None
         return m
 
     @staticmethod
@@ -72,14 +72,14 @@ class sophisthse:
             q = re.search(r"[IV]+", t).group()  # type: ignore
             return d[q]
         except AttributeError:
-            return ""
+            return None
 
     @staticmethod
     def get_year(t) -> Union[str, None]:
         try:
             return re.search(r"\d{4}", t).group()  # type: ignore
         except AttributeError:
-            return ""
+            return None
 
     def get_monthly_dates(self, df: pd.DataFrame) -> pd.DataFrame:
         df.loc[:, ["m"]] = df["T"].apply(self.get_month)
