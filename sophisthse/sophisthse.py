@@ -5,9 +5,6 @@ import requests
 from .constants import tables_url, site_encoding
 
 
-warnings.filterwarnings("ignore", category=UserWarning, module="bs4")
-
-
 class sophisthse:
     def __init__(
         self,
@@ -126,6 +123,8 @@ class sophisthse:
         Returns:
             pd.DataFrame: A DataFrame with period index and data in columns.
         """
+        warnings.filterwarnings("ignore", category=UserWarning, module="bs4")
+
         url = self.get_table_url(series_name)
         df = pd.read_html(url, decimal=",", na_values="&nbsp", encoding=site_encoding, header=0)[0]
         df = df.dropna(subset=["T"])
