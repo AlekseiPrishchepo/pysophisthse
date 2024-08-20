@@ -1,4 +1,5 @@
 import re
+from typing import Union
 import warnings
 import pandas as pd
 import requests
@@ -59,13 +60,13 @@ class sophisthse:
             raise ValueError("The date format is not recognized.")
 
     @staticmethod
-    def get_month(t) -> str | None:
+    def get_month(t) -> Union[str, None]:
         m = re.sub(r"(?:\d{4}\s)(\d{1,2})", "\\1", t)
         m = m if len(m) <= 2 else None
         return m
 
     @staticmethod
-    def get_quarter(t) -> str | None:
+    def get_quarter(t) -> Union[str, None]:
         d = {"I": "3", "II": "6", "III": "9", "IV": "12"}
         try:
             q = re.search(r"[IV]+", t).group()  # type: ignore
@@ -74,7 +75,7 @@ class sophisthse:
             return None
 
     @staticmethod
-    def get_year(t) -> str | None:
+    def get_year(t) -> Union[str, None]:
         try:
             return re.search(r"\d{4}", t).group()  # type: ignore
         except AttributeError:
