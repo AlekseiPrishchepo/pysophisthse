@@ -1,6 +1,6 @@
 import pytest
 import requests_mock
-from sophisthse import sophisthse
+from sophisthse.sophisthse import sophisthse
 from sophisthse.constants import tables_url
 
 series_name_q = "HHI_Q_I"
