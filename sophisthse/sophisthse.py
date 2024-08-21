@@ -85,7 +85,7 @@ class sophisthse:
         df.loc[:, ["m"]] = df["T"].apply(self.get_month)
         df.loc[:, ["y"]] = df["T"].apply(self.get_year)
         df.loc[:, ["y"]] = df["y"].ffill()
-        df.loc[:, ["T"]] = df.apply(lambda x: x["y"] + " " + x["m"], axis=1)
+        df.loc[:, "T"] = df.apply(lambda x: x["y"] + " " + x["m"], axis=1)
 
         df.index = pd.PeriodIndex(df["T"], freq="M")
 
@@ -98,7 +98,7 @@ class sophisthse:
         df.loc[:, ["q"]] = df["T"].apply(self.get_quarter)
         df.loc[:, ["y"]] = df["T"].apply(self.get_year)
         df.loc[:, ["y"]] = df["y"].ffill()
-        df.loc[:, ["T"]] = df.apply(lambda x: x["y"] + " " + x["q"], axis=1)
+        df.loc[:, "T"] = df.apply(lambda x: x["y"] + " " + x["q"], axis=1)
 
         df.index = pd.PeriodIndex(df["T"], freq="Q")
 
