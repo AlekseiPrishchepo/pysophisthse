@@ -139,6 +139,9 @@ class sophisthse:
         else:
             df = self.get_yearly_dates(df)
 
+        for col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
         if self.to_timestamp:
             df.index = pd.PeriodIndex(df.index, freq=period).to_timestamp(how="end")
 
