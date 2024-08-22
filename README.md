@@ -1,4 +1,7 @@
-# pysophisthse
+[![Python package](https://github.com/AlekseiPrishchepo/pysophisthse/actions/workflows/python-package.yml/badge.svg)](https://github.com/AlekseiPrishchepo/pysophisthse/actions/workflows/python-package.yml)
+[![Upload Python Package](https://github.com/AlekseiPrishchepo/pysophisthse/actions/workflows/python-publish.yml/badge.svg)](https://github.com/AlekseiPrishchepo/pysophisthse/actions/workflows/python-publish.yml)
+
+# sophisthse
 SophistHSE library ported to Python
 
 ## Usage
@@ -31,11 +34,11 @@ print(df.tail())
 ```
 
 ```
-                              AGR_M_DIRI AGR_M_DIRI_SA
-T                                                     
-2024-02-29 23:59:59.999999999       1100          3533
-2024-03-31 23:59:59.999999999       1696          3557
-2024-04-30 23:59:59.999999999       1903          3572
-2024-05-31 23:59:59.999999999       2084          3580
-2024-06-30 23:59:59.999999999       2132          3585
+                               HHI_M_DIRI  HHI_M_DIRI_SA    HHI_M
+T                                                                
+2018-09-30 23:59:59.999999999       184.1          187.5  31698.0
+2018-10-31 23:59:59.999999999       190.9          187.9  32962.0
+2018-11-30 23:59:59.999999999       183.3          188.6  32282.0
+2018-12-31 23:59:59.999999999       279.1          189.6  47673.0
+2019-01-31 23:59:59.999999999       139.6          190.7  24496.0
 ```
