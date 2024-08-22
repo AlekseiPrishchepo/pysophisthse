@@ -12,11 +12,14 @@ data_path = "data"
 
 @requests_mock.Mocker(kw="mock")
 def test_list_tables(**kwargs):
+
+    # Create an instance of sophisthse
+    sophisthse_instance = sophisthse()
+
+    # Mock the response
     with open(f"{data_path}/index.html", "r", encoding="cp1251") as f:
         result = f.read()
     kwargs["mock"].get(tables_url, text=result)
-    # Create an instance of sophisthse
-    sophisthse_instance = sophisthse()
 
     # Test case 1: Check if the returned DataFrame has the expected columns
     df = sophisthse_instance.list_tables()
@@ -35,15 +38,17 @@ def test_list_tables(**kwargs):
 
 @requests_mock.Mocker(kw="mock")
 def test_get_table_q(**kwargs):
-    with open(f"{data_path}/{series_name_q}.htm", "r", encoding="cp1251") as f:
-        result = f.read()
-    kwargs["mock"].get(tables_url, text=result)
 
     # Create an instance of sophisthse
     sophisthse_instance = sophisthse()
 
+    # Mock the response
+    with open(f"{data_path}/{series_name_q}.htm", "r", encoding="cp1251") as f:
+        result = f.read()
+    table_url = sophisthse_instance.get_table_url(series_name_q)
+    kwargs["mock"].get(table_url, text=result)
+
     # Test case 1: Check if the returned DataFrame is not empty
-    sophisthse_instance.tables_url = tables_url
     df = sophisthse_instance.get_table(series_name_q)
     assert not df.empty
 
@@ -66,15 +71,17 @@ def test_get_table_q(**kwargs):
 
 @requests_mock.Mocker(kw="mock")
 def test_get_table_m(**kwargs):
-    with open(f"{data_path}/{series_name_m}.htm", "r", encoding="cp1251") as f:
-        result = f.read()
-    kwargs["mock"].get(tables_url, text=result)
 
     # Create an instance of sophisthse
     sophisthse_instance = sophisthse()
 
+    # Mock the response
+    with open(f"{data_path}/{series_name_m}.htm", "r", encoding="cp1251") as f:
+        result = f.read()
+    table_url = sophisthse_instance.get_table_url(series_name_m)
+    kwargs["mock"].get(table_url, text=result)
+
     # Test case 1: Check if the returned DataFrame is not empty
-    sophisthse_instance.tables_url = tables_url
     df = sophisthse_instance.get_table(series_name_m)
     assert not df.empty
 
@@ -100,15 +107,17 @@ def test_get_table_m(**kwargs):
 
 @requests_mock.Mocker(kw="mock")
 def test_get_table_y(**kwargs):
-    with open(f"{data_path}/{series_name_y}.htm", "r", encoding="cp1251") as f:
-        result = f.read()
-    kwargs["mock"].get(tables_url, text=result)
 
     # Create an instance of sophisthse
     sophisthse_instance = sophisthse()
 
+    # Mock the response
+    with open(f"{data_path}/{series_name_y}.htm", "r", encoding="cp1251") as f:
+        result = f.read()
+    table_url = sophisthse_instance.get_table_url(series_name_y)
+    kwargs["mock"].get(table_url, text=result)
+
     # Test case 1: Check if the returned DataFrame is not empty
-    sophisthse_instance.tables_url = tables_url
     df = sophisthse_instance.get_table(series_name_y)
     assert not df.empty
 
