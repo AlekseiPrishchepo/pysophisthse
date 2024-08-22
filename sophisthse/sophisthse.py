@@ -127,7 +127,14 @@ class sophisthse:
         warnings.filterwarnings("ignore", category=UserWarning, module="bs4")
 
         url = self.get_table_url(series_name)
-        df = pd.read_html(url, decimal=",", na_values="&nbsp", encoding=site_encoding, header=0)[0]
+        df = pd.read_html(
+            url,
+            decimal=",",
+            thousands=".",
+            na_values="&nbsp",
+            encoding=site_encoding,
+            header=0,
+        )[0]
         df = df.dropna(subset=["T"])
 
         period = self.get_period(df)
