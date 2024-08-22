@@ -20,7 +20,6 @@ class sophisthse:
             verbose (bool, optional): Whether to display verbose output. Defaults to True.
         """
         self.verbose = verbose
-        self.tables_url = tables_url
         self.to_timestamp = to_timestamp
 
     def get_table_url(self, series_name: str) -> str:
@@ -33,7 +32,7 @@ class sophisthse:
             pd.DataFrame: A DataFrame with two columns: 'date' and 'name'.
         """
         pattern = r"([0-9\/]+\s+[0-9:]+\s+[A,P]M)\s+(?:[0-9]+)\s+[^>]+>([^<]+)<"
-        content = requests.get(self.tables_url).text
+        content = requests.get(tables_url).text
         content_list = content.split("<br>")[2:]
 
         rows = []
