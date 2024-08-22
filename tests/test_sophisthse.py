@@ -94,6 +94,9 @@ def test_get_table_m(**kwargs):
     with pytest.raises(Exception):
         sophisthse_instance.get_table("invalid_series_name")
 
+    # Test case 6: Check if decimal values are correctly parsed
+    assert df.iloc[0, 1] == 85.4
+
 
 @requests_mock.Mocker(kw="mock")
 def test_get_table_y(**kwargs):
