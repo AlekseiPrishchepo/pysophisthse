@@ -2,7 +2,14 @@
 [![Upload Python Package](https://github.com/AlekseiPrishchepo/pysophisthse/actions/workflows/python-publish.yml/badge.svg)](https://github.com/AlekseiPrishchepo/pysophisthse/actions/workflows/python-publish.yml)
 
 # sophisthse
-SophistHSE library ported to Python
+
+**sophisthse** is a Python library that is a port of the `sophisthse` R package. This library allows you to download timeseries of macroeconomic statistics of the Russian Federation from [sophist.hse.ru](http://sophist.hse.ru/hse/nindex.shtml). The data is provided by HSE (Higher School of Economics), which is a leading national research university with expertise in STEM, socio-economic and humanitarian areas, as well as creative industries.
+
+## Installation
+
+```bash
+pip3 install sophisthse
+```
 
 ## Usage
 
