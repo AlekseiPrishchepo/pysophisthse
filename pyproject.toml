@@ -1,6 +1,6 @@
 [project]
 name = "sophisthse"
-version = "0.0.5"
+version = "0.1.0"
 description = "SophistHSE package provides methods to access timeseries data from sophist.hse.ru using Python."
 readme = "README.md"
 authors = [{ name = "Aleksei Prishchepo", email = "sophisthse@outlook.com" }]
