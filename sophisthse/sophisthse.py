@@ -9,8 +9,8 @@ from .constants import tables_url, site_encoding, cache_dir
 class sophisthse:
     def __init__(
         self,
-        to_timestamp: bool = True,
-        verbose: bool = True,
+        to_timestamp: bool = False,
+        verbose: bool = False,
     ):
         """Initializes the sophisthse class.
 
@@ -153,7 +153,7 @@ class sophisthse:
 
         df.to_csv(path, index=False)
         if self.verbose:
-            print("Data saved to cache:", path)
+            print(f"Table '{series_name}' saved to cache:", path)
 
         return df
 
@@ -169,10 +169,11 @@ class sophisthse:
         try:
             with open(path, "r") as f:
                 df = pd.read_csv(f, parse_dates=False)
-                print("Table loaded from cache.")
+                if self.verbose:
+                    print(f"Table '{series_name}' loaded from cache.")
         except FileNotFoundError:
             if self.verbose:
-                print("Table not found in cache. Downloading from the website.")
+                print(f"Table '{series_name}' not found in cache. Downloading from the website.")
             df = self.download_table(series_name, path)
 
         period = self.__get_period(df)
